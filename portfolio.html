@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the portfolio of Scalix Studios, showcasing our successful digital marketing and branding projects.">
+    <meta name="keywords" content="portfolio, advertising agency, marketing projects, case studies, digital portfolio, Scalix Studios">
+    <meta name="author" content="Scalix Studios">
+    <title>Scalix Studios - Portfolio</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS for consistent styling -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        /* Custom scrollbar for better aesthetics */
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+        body::-webkit-scrollbar-track {
+            background: #f1f5f9; /* Light gray */
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #94a3b8; /* Slate gray */
+            border-radius: 4px;
+        }
+        .dark body::-webkit-scrollbar-track {
+            background: #0f172a; /* Dark blue */
+        }
+        .dark body::-webkit-scrollbar-thumb {
+            background-color: #475569; /* Darker slate gray */
+            border-radius: 4px;
+        }
+
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal specific styles */
+        .modal {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Utility for hiding the chatbot window */
+        .hide-chatbot {
+            transform: scale(0);
+        }
+
+        /* Ensure FAQ content is hidden by default */
+        .faq-content.max-h-0 {
+            max-height: 0 !important;
+            padding: 0 !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300 font-sans">
+    
+    <!-- Navigation (Consistent with other pages) -->
+    <nav class="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50 rounded-b-xl" aria-label="Main navigation">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold text-blue-600 dark:text-blue-400 mb-4 md:mb-0 transform transition-all hover:scale-105">Scalix Studios</a>
+            <div class="space-x-4 flex flex-wrap justify-center items-center">
+                <a href="index.html" class="text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Home</a>
+                <a href="services.html" class="text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Services</a>
+                <a href="portfolio.html" class="text-lg font-medium text-blue-600 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition" aria-current="page">Portfolio</a>
+                <a href="index.html#contact" class="text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
+                <button id="theme-toggle" class="focus:outline-none ml-4 transition-transform hover:scale-110" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon dark:fa-sun text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portfolio Hero Section -->
+    <header id="portfolio-hero" class="bg-gradient-to-r from-blue-600 to-purple-600 min-h-[50vh] flex items-center justify-center text-center p-4 rounded-b-3xl shadow-2xl">
+        <div class="container mx-auto max-w-4xl z-10 px-4">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 text-white leading-tight">Our Work Speaks for Itself</h1>
+            <p class="text-lg md:text-xl mb-8 text-blue-100/90 leading-relaxed max-w-2xl mx-auto">
+                Discover the innovative campaigns and digital experiences we've crafted for brands of all sizes.
+            </p>
+        </div>
+    </header>
+
+    <!-- Projects Grid Section -->
+    <section id="projects" class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">Featured Projects</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+                A selection of our most impactful and creative projects, showcasing our expertise.
+            </p>
+            
+            <!-- Project Filter Buttons -->
+            <div id="project-filters" class="flex flex-wrap justify-center items-center gap-4 mb-12">
+                <button class="filter-btn text-lg font-semibold px-6 py-2 rounded-full transition-all duration-300 bg-blue-600 text-white hover:bg-blue-700 focus:outline-none" data-filter="all">All Projects</button>
+                <button class="filter-btn text-lg font-semibold px-6 py-2 rounded-full transition-all duration-300 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none" data-filter="web-design">Web Design</button>
+                <button class="filter-btn text-lg font-semibold px-6 py-2 rounded-full transition-all duration-300 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none" data-filter="seo">SEO</button>
+                <button class="filter-btn text-lg font-semibold px-6 py-2 rounded-full transition-all duration-300 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none" data-filter="social-media">Social Media</button>
+            </div>
+            
+            <!-- Dynamic Projects Grid Container -->
+            <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project cards will be injected here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="bg-gray-200 dark:bg-gray-800 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">What Our Clients Say</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+                Hear from those who've experienced the Scalix Studios difference.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-md">
+                    <p class="text-gray-700 dark:text-gray-300 italic mb-4">
+                        "Scalix Studios' web design team completely transformed our outdated site into a sleek, modern platform. We saw a 40% increase in lead inquiries within the first quarter. Their attention to detail and user-centric approach was exceptional."
+                    </p>
+                    <p class="font-bold text-gray-900 dark:text-gray-100">- Sarah Chen, CEO of Innovate Technologies</p>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-md">
+                    <p class="text-gray-700 dark:text-gray-300 italic mb-4">
+                        "The SEO strategy from Scalix was a game-changer. They helped us secure top rankings for our most competitive keywords, which drove a 150% increase in organic traffic and a significant rise in our market authority. The ROI has been incredible."
+                    </p>
+                    <p class="font-bold text-gray-900 dark:text-gray-100">- David Ramirez, Founder of EcoSolutions Co.</p>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-md">
+                    <p class="text-gray-700 dark:text-gray-300 italic mb-4">
+                        "Scalix Studios helped us build a vibrant online community through a targeted social media campaign. Our brand engagement doubled, and we've seen a measurable increase in customer loyalty and positive sentiment. They are true experts."
+                    </p>
+                    <p class="font-bold text-gray-900 dark:text-gray-100">- Emily White, Marketing Director at Urban Bloom</p>
+                </div>
+                <!-- Testimonial 4 -->
+                <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-md">
+                    <p class="text-gray-700 dark:text-gray-300 italic mb-4">
+                        "From the initial consultation to the final delivery, the Scalix team was professional and highly effective. They provided clear insights and transparent communication throughout the project, making the whole process seamless and enjoyable."
+                    </p>
+                    <p class="font-bold text-gray-900 dark:text-gray-100">- John Davis, Head of Operations at FutureCore</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="bg-gray-200 dark:bg-gray-800 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">Frequently Asked Questions</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+                Find answers to common questions about our services and process.
+            </p>
+            <div class="max-w-3xl mx-auto space-y-4 text-left">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md">
+                    <button type="button" class="faq-toggle w-full p-6 flex justify-between items-center text-lg font-semibold">
+                        What kind of services do you offer?
+                        <i class="fa-solid fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="text-gray-700 dark:text-gray-300 p-6 pt-0">
+                            We offer a full suite of digital marketing services including SEO, social media marketing, content creation, branding, and web design. We tailor our services to meet your specific business goals.
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md">
+                    <button type="button" class="faq-toggle w-full p-6 flex justify-between items-center text-lg font-semibold">
+                        How long does a typical project take?
+                        <i class="fa-solid fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="text-gray-700 dark:text-gray-300 p-6 pt-0">
+                            The timeline for each project varies based on its scope and complexity. A typical web design project can take anywhere from 4-8 weeks, while an ongoing SEO campaign is a long-term commitment. We will provide a detailed timeline after our initial consultation.
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md">
+                    <button type="button" class="faq-toggle w-full p-6 flex justify-between items-center text-lg font-semibold">
+                        What is your pricing model?
+                        <i class="fa-solid fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="text-gray-700 dark:text-gray-300 p-6 pt-0">
+                            We offer flexible pricing models, including project-based, retainer, and hourly rates, to accommodate different budgets and project needs. We'll provide a transparent and custom quote after understanding your requirements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section id="contact-cta" class="bg-gray-200 dark:bg-gray-800 py-16 rounded-3xl mx-4 my-8 md:mx-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">Ready to Start Your Project?</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+                Contact us today to discuss your vision and see how we can help your brand succeed.
+            </p>
+            <a href="index.html#contact" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-700 transform hover:scale-105 transition-all">
+                Get a Free Consultation
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer (Consistent with other pages) -->
+    <footer class="bg-gray-900 text-gray-300 py-10 mt-8 rounded-t-3xl shadow-inner">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-4">Scalix Studios</h3>
+            <p class="text-sm max-w-xl mx-auto mb-6">Innovative advertising and marketing solutions for your business. Let's work together to achieve your goals.</p>
+            <div class="mt-4 space-x-6 text-xl">
+                <a href="#" target="_blank" class="hover:text-blue-400 transition" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" target="_blank" class="hover:text-blue-400 transition" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" target="_blank" class="hover:text-blue-400 transition" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" class="hover:text-blue-400 transition" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <p class="text-xs mt-6">&copy; 2025 Scalix Studios. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- AI Chatbot UI -->
+    <div id="chatbot-container" class="fixed bottom-4 right-4 z-[100] transition-transform duration-300 ease-in-out">
+        <!-- Chatbot toggle button -->
+        <button id="chatbot-toggle-btn" class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 ease-in-out">
+            <i class="fa-solid fa-comment-dots"></i>
+        </button>
+
+        <!-- Chat window -->
+        <div id="chatbot-window" class="hidden absolute bottom-20 right-0 w-80 h-96 bg-white dark:bg-gray-900 rounded-xl shadow-2xl flex flex-col transition-transform duration-300 ease-in-out transform scale-0 origin-bottom-right">
+            <!-- Chat header -->
+            <div class="bg-blue-600 text-white p-4 rounded-t-xl text-center font-bold flex items-center justify-between">
+                <span>Scalix Studios AI Assistant</span>
+                <button type="button" id="chatbot-minimize-btn" class="text-white hover:text-gray-200 transition-colors focus:outline-none">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+            </div>
+
+            <!-- Chat message area -->
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4 scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-transparent">
+                <!-- Initial welcome message -->
+                <div class="flex justify-start">
+                    <div class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100 p-3 rounded-lg max-w-[80%]">
+                        Hello! How can I assist you with your project today?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat input form -->
+            <form id="chat-form" class="p-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <input type="text" id="chat-input" placeholder="Type a message..." class="w-full p-2 rounded-full bg-gray-100 dark:bg-gray-800 border-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-gray-100 placeholder-gray-500">
+                    <button type="submit" id="send-btn" class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Case Study Modal (Initially hidden) -->
+    <div id="case-study-modal" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-4 modal">
+        <div class="bg-white dark:bg-gray-900 rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto transform transition-all duration-300 ease-in-out scale-95 opacity-0">
+            <!-- Modal Header -->
+            <div class="bg-blue-600 dark:bg-blue-800 text-white p-4 rounded-t-xl flex justify-between items-center">
+                <h2 id="modal-title" class="text-2xl font-bold"></h2>
+                <button type="button" id="modal-close-btn" class="text-white hover:text-gray-200 transition-colors focus:outline-none">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+            <!-- Modal Body -->
+            <div class="p-6">
+                <img id="modal-image" src="" alt="Case Study Image" class="w-full rounded-lg mb-6">
+                <p id="modal-content" class="text-gray-700 dark:text-gray-300 leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom JS -->
+    <script>
+        // Data for the portfolio projects
+        // To add a new project, simply add a new object to this array.
+        const projectsData = [
+            {
+                title: "Modern Website Revamp",
+                category: "web-design",
+                image: "https://placehold.co/800x600/3b82f6/ffffff?text=Web+Design",
+                caseStudy: {
+                    image: "https://placehold.co/1000x500/1e40af/ffffff?text=Modern+Website+Revamp+Mockup",
+                    content: "<b>The Challenge:</b> Our client, a rapidly growing SaaS company, faced a significant challenge with an outdated website. The old site was slow, not mobile-friendly, and its design failed to capture the brand's innovative spirit. This resulted in low lead conversion rates and a high bounce rate, hindering their business growth.<br><br><b>Our Solution:</b> We initiated a comprehensive, data-driven redesign focused on user experience (UX) and lead generation. Our team conducted a thorough audit of the existing site, performed competitive analysis, and developed a new, modern UI/UX design. We rebuilt the site using a lightweight framework for optimal performance, ensuring it was fully responsive across all devices. We also implemented new call-to-action (CTA) placements and simplified the user journey.<br><br><b>Key Results:</b> The new website delivered outstanding results within the first three months. Lead generation increased by <b>40%</b>, and the bounce rate decreased by <b>25%</b>. The average session duration also improved by <b>15%</b>, indicating a more engaging user experience. The client's brand perception in the market was significantly elevated, leading to a stronger market position."
+                }
+            },
+            {
+                title: "Organic Growth Campaign",
+                category: "seo",
+                image: "https://placehold.co/800x600/8b5cf6/ffffff?text=SEO+Strategy",
+                caseStudy: {
+                    image: "https://placehold.co/1000x500/6d28d9/ffffff?text=Organic+Growth+Campaign+Graph",
+                    content: "<b>The Challenge:</b> Our client, a B2B software company, faced intense competition in their market. Their website had low organic visibility, and they were struggling to attract qualified leads without relying on paid advertising. The goal was to establish them as a thought leader and a trusted resource in their industry.<br><br><b>Our Solution:</b> We implemented a comprehensive, data-driven SEO strategy. We began with an in-depth keyword analysis to identify high-value search terms and competitor gaps. We then developed a content strategy with a consistent publishing schedule for blog posts and whitepapers. We also initiated a strategic link-building campaign to build domain authority and credibility.<br><br><b>Key Results:</b> The campaign was highly successful. Within six months, organic traffic increased by an incredible <b>150%</b>. The client secured top 3 rankings for five of their most competitive, high-intent keywords, and their online authority grew exponentially, leading to a significant increase in inbound inquiries."
+                }
+            },
+            {
+                title: "Community Engagement Drive",
+                category: "social-media",
+                image: "https://placehold.co/800x600/ef4444/ffffff?text=Social+Media",
+                caseStudy: {
+                    image: "https://placehold.co/1000x500/b91c1c/ffffff?text=Social+Media+Stats",
+                    content: "<b>The Challenge:</b> The client had a dormant social media presence, primarily used for one-way announcements. They wanted to transform their channels into a dynamic, two-way conversation hub to foster brand loyalty and increase user engagement. The goal was to build a strong, active online community.<br><br><b>Our Solution:</b> We developed a content strategy focused on community-building. This included daily interactive posts, polls, live Q&A sessions with brand experts, and user-generated content campaigns. We also implemented a dedicated social listening strategy to respond to comments and messages in real-time, making the community feel valued and heard.<br><br><b>Key Results:</b> The campaign successfully revitalized the client's social channels. Brand engagement rates doubled, follower count increased by <b>30%</b>, and we saw a significant rise in positive brand mentions. The campaign created a loyal and highly active community that continues to advocate for the brand."
+                }
+            },
+            {
+                title: "Custom E-commerce Platform",
+                category: "web-design",
+                image: "https://placehold.co/800x600/3b82f6/ffffff?text=E-commerce+Platform",
+                caseStudy: {
+                    image: "https://placehold.co/1000x500/1e40af/ffffff?text=E-commerce+Platform+UI",
+                    content: "<b>The Challenge:</b> A growing online retail brand needed a custom e-commerce solution to handle high traffic volumes and provide a seamless shopping experience. Their previous platform was limited in functionality and struggled to scale, leading to abandoned carts and lost revenue.<br><br><b>Our Solution:</b> We designed and built a bespoke e-commerce platform from the ground up, tailored to the client's unique needs. We focused on a clean, intuitive design, optimized the site for speed, and integrated a robust, secure payment gateway. The platform included a custom product management system and automated shipping calculations to streamline their operations.<br><br><b>Key Results:</b> The new platform was a resounding success. The client saw a <b>50%</b> increase in online sales within the first six months. The improved checkout process reduced cart abandonment by <b>35%</b>, and overall customer satisfaction scores rose significantly due to the smoother user experience."
+                }
+            },
+            {
+                title: "Local SEO Boost",
+                category: "seo",
+                image: "https://placehold.co/800x600/8b5cf6/ffffff?text=Local+SEO",
+                caseStudy: {
+                    image: "https://placehold.co/1000x500/6d28d9/ffffff?text=Local+Search+Results",
+                    content: "<b>The Challenge:</b> A local service business was struggling to compete with larger, national competitors in local search results. They had limited online visibility, which meant they were missing out on potential customers in their own neighborhood who were searching for their services.<br><br><b>Our Solution:</b> We designed a highly targeted local SEO campaign. We optimized their Google My Business profile with accurate information, high-quality photos, and consistent business hours. We built local citations and directory listings to improve their local authority. Additionally, we created location-specific content on their website to target local search queries.<br><br><b>Key Results:</b> The campaign was a massive success. The client saw a <b>200%</b> increase in map views and a significant rise in direct phone calls and website visits from local customers. Their business now consistently appears in the top results for 'near me' searches, solidifying their position as the go-to service provider in their area."
+                }
+            },
+            {
+                title: "Influencer Marketing Campaign",
+                category: "social-media",
+                image: "https://placehold.co/800x600/ef4444/ffffff?text=Influencer+Marketing",
+                caseStudy: {
+                    image: "https://placehold.co/1000x500/b91c1c/ffffff?text=Influencer+Campaign+Graph",
+                    content: "<b>The Challenge:</b> A new fashion brand wanted to build brand awareness and drive sales quickly in a crowded market. They needed a way to reach a highly engaged, targeted audience that trusted recommendations.<br><br><b>Our Solution:</b> We developed a comprehensive influencer marketing strategy, identifying key nano and micro-influencers whose personal brands aligned with the client's values. We created personalized outreach campaigns, handled contract negotiations, and provided content guidelines to ensure brand consistency. We also set up a tracking system to measure the direct impact of each influencer partnership.<br><br><b>Key Results:</b> The campaign generated over <b>5 million impressions</b> and a <b>300% return on ad spend (ROAS)</b>. The brand saw a significant increase in online sales and social media followers, and built valuable, long-term relationships with influential voices in their niche. This campaign established them as a credible and stylish brand in the industry."
+                }
+            }
+        ];
+
+        // Dark Mode Toggle
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark');
+        }
+
+        // FAQ accordion functionality
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+
+        faqToggles.forEach(toggle => {
+            const content = toggle.nextElementSibling;
+            
+            toggle.addEventListener('click', () => {
+                const icon = toggle.querySelector('i');
+                const isExpanded = content.classList.toggle('max-h-0');
+                
+                if (!isExpanded) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.classList.add('rotate-180');
+                } else {
+                    content.style.maxHeight = '0px';
+                    icon.classList.remove('rotate-180');
+                }
+            });
+        });
+
+        // ===========================================
+        // AI Chatbot with Conversational Memory
+        // ===========================================
+
+        const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
+        const chatbotMinimizeBtn = document.getElementById('chatbot-minimize-btn');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        // Stores the conversation history for context-aware responses
+        const chatHistory = [];
+
+        // Toggle the chatbot window visibility
+        chatbotToggleBtn.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('hidden');
+            chatbotWindow.classList.toggle('scale-0');
+        });
+
+        // Minimize the chatbot window
+        chatbotMinimizeBtn.addEventListener('click', () => {
+            chatbotWindow.classList.add('hidden');
+            chatbotWindow.classList.add('scale-0');
+        });
+
+        /**
+         * Fetches a response from the Gemini API using the conversation history.
+         * @param {string} prompt The user's message.
+         * @returns {Promise<string>} The chatbot's response.
+         */
+        async function fetchGeminiResponse(prompt) {
+            // Add user message to history
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=`;
+            const payload = {
+                contents: chatHistory,
+            };
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0 && result.candidates[0].content && result.candidates[0].content.parts && result.candidates[0].content.parts.length > 0) {
+                    const botResponse = result.candidates[0].content.parts[0].text;
+                    // Add bot's response to history
+                    chatHistory.push({ role: "model", parts: [{ text: botResponse }] });
+                    return botResponse;
+                } else {
+                    return "Sorry, I couldn't get a response. Please try again.";
+                }
+            } catch (error) {
+                console.error('Error fetching from Gemini API:', error);
+                return "An error occurred. Please check the console for more details.";
+            }
+        }
+        
+        /**
+         * Adds a new message to the chat display.
+         * @param {string} sender 'user' or 'bot'.
+         * @param {string} message The message text.
+         */
+        function addMessage(sender, message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('flex', sender === 'user' ? 'justify-end' : 'justify-start');
+
+            const contentDiv = document.createElement('div');
+            contentDiv.classList.add('p-3', 'rounded-lg', 'max-w-[80%]');
+            
+            if (sender === 'user') {
+                contentDiv.classList.add('bg-blue-500', 'text-white');
+            } else {
+                contentDiv.classList.add('bg-gray-200', 'dark:bg-gray-800', 'text-gray-900', 'dark:text-gray-100');
+            }
+
+            contentDiv.innerText = message;
+            messageDiv.appendChild(contentDiv);
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to the bottom
+        }
+
+        // Handle chat form submission
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userMessage = chatInput.value.trim();
+            if (userMessage === '') return;
+
+            addMessage('user', userMessage);
+            chatInput.value = '';
+
+            // Show a "typing" indicator before calling the API
+            addMessage('bot', '...');
+            
+            const botResponse = await fetchGeminiResponse(userMessage);
+
+            // Replace loading indicator with the actual response
+            const loadingMessage = chatMessages.lastElementChild;
+            if (loadingMessage) {
+                loadingMessage.remove();
+            }
+            
+            addMessage('bot', botResponse);
+        });
+
+        // ===========================================
+        // Case Study Modal & Dynamic Project Rendering
+        // ===========================================
+
+        const modal = document.getElementById('case-study-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalImage = document.getElementById('modal-image');
+        const modalContent = document.getElementById('modal-content');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+        const projectsGrid = document.getElementById('projects-grid');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        /**
+         * Shows the case study modal with the given content.
+         * @param {string} title
+         * @param {string} image
+         * @param {string} content
+         */
+        function showModal(title, image, content) {
+            modalTitle.innerText = title;
+            modalImage.src = image;
+            modalContent.innerHTML = content;
+            
+            modal.classList.remove('hidden');
+
+            setTimeout(() => {
+                modal.firstElementChild.classList.remove('scale-95', 'opacity-0');
+            }, 0);
+        }
+
+        // Function to hide the modal
+        function hideModal() {
+            modal.firstElementChild.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Match CSS transition duration
+        }
+
+        // Event listener for the modal close button
+        modalCloseBtn.addEventListener('click', hideModal);
+
+        // Close modal when clicking outside of it
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+
+        /**
+         * Generates and renders project cards from the provided data.
+         * @param {Array<Object>} projects The array of project data objects.
+         */
+        function renderProjects(projects) {
+            projectsGrid.innerHTML = ''; // Clear existing projects
+            if (projects.length === 0) {
+                projectsGrid.innerHTML = `<p class="text-center col-span-full text-gray-500 dark:text-gray-400">No projects found for this category.</p>`;
+                return;
+            }
+
+            projects.forEach(project => {
+                const projectCardHTML = `
+                    <div class="project-card bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden transform transition-transform hover:scale-105 hover:shadow-2xl" data-category="${project.category}">
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">${project.title}</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                                <!-- Truncated description for display -->
+                                ${project.caseStudy.content.replace(/<[^>]*>/g, '').substring(0, 100)}...
+                            </p>
+                            <button type="button" class="view-case-study inline-block bg-blue-600 text-white font-bold py-2 px-4 rounded-full hover:bg-blue-700 transition"
+                                data-title="${project.title}"
+                                data-image="${project.caseStudy.image}"
+                                data-content="${project.caseStudy.content.replace(/"/g, '&quot;')}"
+                            >
+                                View Case Study
+                            </button>
+                        </div>
+                    </div>
+                `;
+                projectsGrid.insertAdjacentHTML('beforeend', projectCardHTML);
+            });
+
+            // Re-attach event listeners to the new buttons
+            document.querySelectorAll('.view-case-study').forEach(button => {
+                button.addEventListener('click', () => {
+                    const title = button.dataset.title;
+                    const image = button.dataset.image;
+                    const content = button.dataset.content;
+                    showModal(title, image, content);
+                });
+            });
+        }
+
+        // Initial render of all projects
+        renderProjects(projectsData);
+
+        // Project Filtering Functionality
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+
+                // Update active button styling
+                filterButtons.forEach(btn => btn.classList.remove('bg-blue-600', 'text-white', 'hover:bg-blue-700'));
+                button.classList.add('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+
+                // Add loading indicator
+                projectsGrid.innerHTML = `<div class="col-span-full text-center py-8 text-lg font-semibold text-gray-500 dark:text-gray-400">Loading...</div>`;
+                projectsGrid.classList.add('opacity-0');
+                
+                setTimeout(() => {
+                    const filteredProjects = filter === 'all' 
+                        ? projectsData 
+                        : projectsData.filter(project => project.category === filter);
+                    
+                    renderProjects(filteredProjects);
+                    projectsGrid.classList.remove('opacity-0');
+                }, 300); // Wait for the fade-out transition
+            });
+        });
+
+    </script>
+</body>
+</html>

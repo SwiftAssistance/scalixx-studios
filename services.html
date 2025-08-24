@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the comprehensive digital marketing and branding services offered by Scalix Studios, including SEO, social media marketing, and creative branding.">
+    <meta name="keywords" content="digital marketing services, SEO, social media marketing, branding, web development, content marketing, Scalix Studios">
+    <meta name="author" content="Scalix Studios">
+    <title>Scalix Studios - Our Services</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons - Corrected integrity attribute -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1q/8t9r+K6NlUo/C6wE2S+8G/QxS5Jp6wL4X+fD2t7q+k+X+nB0E/kE+n+u+X" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- AOS for Scroll Animations -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom CSS for subtle effects -->
+    <style>
+        /* Smooth transitions for dark mode and other changes */
+        body {
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dark .glass {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        .dark .loading-spinner {
+            border-top: 4px solid #4b6edb;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300 font-sans">
+    
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50 rounded-b-xl" aria-label="Main navigation">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold text-blue-600 dark:text-blue-400 mb-4 md:mb-0 transform transition-all hover:scale-105">Scalix Studios</a>
+            <div class="space-x-4 flex flex-wrap justify-center items-center">
+                <a href="index.html" class="text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Home</a>
+                <a href="services.html" class="text-lg font-medium text-blue-600 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition" aria-current="page">Services</a>
+                <a href="index.html#portfolio" class="text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Portfolio</a>
+                <a href="index.html#contact" class="text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
+                <button id="theme-toggle" class="focus:outline-none ml-4 transition-transform hover:scale-110" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon dark:fa-sun text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section for Services Page -->
+    <section id="hero" class="bg-gradient-to-r from-blue-600 to-purple-600 min-h-[50vh] flex items-center justify-center text-center p-4 relative overflow-hidden rounded-b-3xl shadow-2xl">
+        <div class="container mx-auto max-w-4xl z-10 px-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 text-white leading-tight" data-aos="fade-up">Our Services</h1>
+            <p class="text-lg md:text-xl mb-8 text-blue-100/90 leading-relaxed max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Crafting digital solutions that drive real business growth. From strategy to execution, we're your partners in success.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Detailed Services Section -->
+    <section id="detailed-services" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-gray-200" data-aos="fade-up">A Comprehensive Suite of Services</h2>
+            
+            <!-- SEO Section -->
+            <div class="mb-16 md:flex md:space-x-12 items-center" data-aos="fade-right">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/800x600/3b82f6/ffffff?text=SEO+Services" alt="Search Engine Optimization Services" class="rounded-xl shadow-lg mb-6 md:mb-0" loading="lazy">
+                </div>
+                <div class="md:w-1/2">
+                    <!-- Adjusted heading from h2 to h3 for semantic structure -->
+                    <h3 class="text-4xl font-bold mb-4 text-blue-600 dark:text-blue-400">Search Engine Optimization (SEO)</h3>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                        Improve your online visibility and dominate search rankings with our comprehensive SEO strategies. We go beyond keywords to build a strong, authority-driven digital presence.
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>On-Page Optimization:</strong> Structuring your website and content for search engines.</li>
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>Off-Page SEO & Link Building:</strong> Earning high-quality backlinks to boost domain authority.</li>
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>Technical SEO Audits:</strong> Fixing technical issues that hinder search performance.</li>
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>Keyword Research:</strong> Identifying the most valuable search terms for your business.</li>
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>Content Strategy:</strong> Creating valuable, relevant content that attracts and engages your audience.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Social Media Marketing Section -->
+            <div class="mb-16 md:flex md:space-x-12 items-center md:flex-row-reverse" data-aos="fade-left">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/800x600/8b5cf6/ffffff?text=Social+Media+Marketing" alt="Social Media Marketing Services" class="rounded-xl shadow-lg mb-6 md:mb-0" loading="lazy">
+                </div>
+                <div class="md:w-1/2">
+                    <!-- Adjusted heading from h2 to h3 for semantic structure -->
+                    <h3 class="text-4xl font-bold mb-4 text-blue-600 dark:text-blue-400">Social Media Marketing</h3>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                        Build a thriving community and connect with your audience on the platforms that matter. We manage your social presence to drive engagement and brand loyalty.
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>Social Strategy & Planning:</strong> Developing a roadmap for success on social media.</li>
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>Content Creation & Curation:</strong> Crafting compelling posts, stories, and videos.</li>
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>Community Management:</strong> Engaging with your followers and building relationships.</li>
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>Paid Social Advertising:</strong> Running targeted campaigns to reach new customers.</li>
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>Analytics & Reporting:</strong> Providing clear, actionable insights on your performance.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Creative Branding Section -->
+            <div class="mb-16 md:flex md:space-x-12 items-center" data-aos="fade-right">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/800x600/ef4444/ffffff?text=Creative+Branding" alt="Creative Branding Services" class="rounded-xl shadow-lg mb-6 md:mb-0" loading="lazy">
+                </div>
+                <div class="md:w-1/2">
+                    <!-- Adjusted heading from h2 to h3 for semantic structure -->
+                    <h3 class="text-4xl font-bold mb-4 text-blue-600 dark:text-blue-400">Creative Branding</h3>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                        A powerful brand is more than just a logo. We create a holistic brand identity that tells your story and connects with your audience on an emotional level.
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>Brand Strategy:</strong> Defining your mission, vision, and target audience.</li>
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>Visual Identity:</strong> Designing logos, color palettes, and typography.</li>
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>Messaging & Voice:</strong> Crafting a consistent tone for all your communications.</li>
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>Brand Guidelines:</strong> Providing a comprehensive guide for internal and external use.</li>
+                        <li><i class="fa-solid fa-circle-check text-green-500 mr-2"></i><strong>Brand Collateral:</strong> Creating business cards, brochures, and more.</li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI-Powered Content Idea Generator Section -->
+    <section id="ai-generator" class="py-16 bg-gray-200 dark:bg-gray-800 rounded-3xl mx-4 my-8 md:mx-16" data-aos="fade-up">
+        <div class="container mx-auto px-4 text-center max-w-2xl">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">✨ Content Idea Generator</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-8">
+                Stuck on what to write? Our AI-powered tool can spark creative ideas for your next blog post, social media campaign, or website content. Just enter a topic below!
+            </p>
+            <!-- Changed to a form to allow submission with Enter key -->
+            <form id="generator-form" class="flex flex-col sm:flex-row gap-4 mb-8">
+                <input type="text" id="topic-input" placeholder="e.g., 'sustainable fashion' or 'home automation'" class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 transition-all">
+                <button type="submit" id="generate-btn" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold shadow-lg hover:bg-blue-700 transition-all flex items-center justify-center">
+                    Generate Ideas ✨
+                </button>
+            </form>
+            <div id="results-container" class="text-left mt-8 p-6 glass rounded-2xl min-h-[200px] flex items-center justify-center">
+                <p id="placeholder-text" class="text-gray-500 dark:text-gray-400">Your brilliant content ideas will appear here!</p>
+                <div id="loading-spinner" class="hidden loading-spinner"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="bg-gray-200 dark:bg-gray-800 py-16 rounded-3xl mx-4 my-8 md:mx-16" data-aos="fade-up">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">Why Scalix Studios?</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+                We're more than just a service provider; we're your dedicated partners in growth.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-lightbulb text-5xl text-blue-600 dark:text-blue-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Innovative Solutions</h3>
+                    <p class="text-gray-700 dark:text-gray-300">We stay ahead of industry trends to deliver creative strategies that get results.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-users text-5xl text-purple-600 dark:text-purple-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Client-Centric Approach</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Your goals are our priority. We work closely with you to understand your needs.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl shadow-lg transition-transform transform hover:scale-105" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-chart-line text-5xl text-green-600 dark:text-green-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Measurable Results</h3>
+                    <p class="text-gray-700 dark:text-gray-300">We focus on data-driven strategies that provide clear, tangible returns on your investment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process Section -->
+    <section id="our-process" class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100" data-aos="fade-up">Our Simple Process</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                We've streamlined our process to ensure a smooth, transparent, and effective collaboration.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-6 rounded-2xl shadow-xl bg-white dark:bg-gray-900 transition-transform transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4">1</div>
+                    <h3 class="text-2xl font-bold mb-2">Discover</h3>
+                    <p class="text-gray-700 dark:text-gray-300">We start by understanding your brand, goals, and target audience.</p>
+                </div>
+                <div class="p-6 rounded-2xl shadow-xl bg-white dark:bg-gray-900 transition-transform transform hover:scale-105" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-purple-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4">2</div>
+                    <h3 class="text-2xl font-bold mb-2">Strategize</h3>
+                    <p class="text-gray-700 dark:text-gray-300">We create a tailored, data-driven strategy to achieve your objectives.</p>
+                </div>
+                <div class="p-6 rounded-2xl shadow-xl bg-white dark:bg-gray-900 transition-transform transform hover:scale-105" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-red-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4">3</div>
+                    <h3 class="text-2xl font-bold mb-2">Implement</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Our team executes the plan with precision and creativity.</p>
+                </div>
+                <div class="p-6 rounded-2xl shadow-xl bg-white dark:bg-gray-900 transition-transform transform hover:scale-105" data-aos="fade-up" data-aos-delay="500">
+                    <div class="bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4">4</div>
+                    <h3 class="text-2xl font-bold mb-2">Analyze & Grow</h3>
+                    <p class="text-gray-700 dark:text-gray-300">We continuously monitor results and optimize for long-term success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials Section -->
+    <section id="testimonials" class="bg-gray-200 dark:bg-gray-800 py-16 rounded-3xl mx-4 my-8 md:mx-16" data-aos="fade-up">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">What Our Clients Say</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+                Hear directly from the businesses we've helped succeed.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:grid-cols-3">
+                <!-- Testimonial 1 -->
+                <div class="glass p-8 rounded-2xl shadow-lg transform transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-xl italic text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                        "Scalix Studios completely transformed our online presence. Their SEO strategy was a game-changer for our business. Highly recommend!"
+                    </p>
+                    <div class="flex items-center justify-center">
+                        <img src="https://placehold.co/48x48/d1d5db/4b5563?text=JD" alt="Jane Doe profile image" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="text-lg font-bold">Jane Doe</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">CEO, Tech Solutions Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="glass p-8 rounded-2xl shadow-lg transform transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-xl italic text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                        "Their social media team helped us build a thriving community and increased our brand engagement tenfold. An absolute pleasure to work with."
+                    </p>
+                    <div class="flex items-center justify-center">
+                        <img src="https://placehold.co/48x48/d1d5db/4b5563?text=JS" alt="John Smith profile image" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="text-lg font-bold">John Smith</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Marketing Director, Global Brands</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="glass p-8 rounded-2xl shadow-lg transform transition-transform hover:scale-105 md:col-span-2 lg:col-span-1 mx-auto max-w-md" data-aos="fade-up" data-aos-delay="300">
+                    <p class="text-xl italic text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                        "The branding they developed for us was spot-on. It truly captures our company's essence and has made a huge difference in our market perception."
+                    </p>
+                    <div class="flex items-center justify-center">
+                        <img src="https://placehold.co/48x48/d1d5db/4b5563?text=EW" alt="Emily White profile image" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="text-lg font-bold">Emily White</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Founder, Creative Ventures</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-center text-white rounded-3xl shadow-xl mx-4 my-8 md:mx-16" data-aos="zoom-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Ready to Grow Your Business?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">
+                Our team is ready to help you build a stronger brand and drive exceptional results. Contact us today to discuss your goals.
+            </p>
+            <a href="index.html#contact" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-gray-200 transform hover:scale-105 transition-all">
+                Let's Get Started
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-10 mt-8 rounded-t-3xl shadow-inner">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-4">Scalix Studios</h3>
+            <p class="text-sm max-w-xl mx-auto mb-6">Innovative advertising and marketing solutions for your business. Let's work together to achieve your goals.</p>
+            <div class="mt-4 space-x-6 text-xl">
+                <a href="#" target="_blank" class="hover:text-blue-400 transition" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" target="_blank" class="hover:text-blue-400 transition" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" target="_blank" class="hover:text-blue-400 transition" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" class="hover:text-blue-400 transition" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <p class="text-xs mt-6">&copy; 2025 Scalix Studios. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-4 rounded-full shadow-lg transition-transform duration-300 transform scale-0" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    
+    <!-- AOS and Custom JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations with a faster duration
+        AOS.init({
+            duration: 800, // Reduced from 1000 to 800 for a quicker animation
+            once: true,
+            easing: 'ease-in-out',
+            delay: 100, // Reduced from 200 to 100 for a quicker start
+        });
+
+        // Dark Mode Toggle
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark');
+        }
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('scale-0');
+                backToTopBtn.classList.add('scale-100');
+            } else {
+                backToTopBtn.classList.remove('scale-100');
+                backToTopBtn.classList.add('scale-0');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // --- Gemini API Content Idea Generator ---
+        const generatorForm = document.getElementById('generator-form');
+        const topicInput = document.getElementById('topic-input');
+        const resultsContainer = document.getElementById('results-container');
+        const placeholderText = document.getElementById('placeholder-text');
+        const loadingSpinner = document.getElementById('loading-spinner');
+
+        // Simple function to parse markdown list for display
+        const parseMarkdownList = (markdown) => {
+            const lines = markdown.split('\n');
+            let html = '<ul class="list-disc list-inside space-y-2">';
+            lines.forEach(line => {
+                if (line.trim().startsWith('* ') || line.trim().startsWith('- ')) {
+                    const text = line.trim().substring(2);
+                    html += `<li>${text}</li>`;
+                }
+            });
+            html += '</ul>';
+            return html;
+        };
+
+        generatorForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent the form from reloading the page
+
+            const userTopic = topicInput.value.trim();
+            if (!userTopic) {
+                resultsContainer.innerHTML = `<p class="text-red-500 text-center">Please enter a topic to generate ideas.</p>`;
+                return;
+            }
+
+            // Show loading state
+            placeholderText.classList.add('hidden');
+            loadingSpinner.classList.remove('hidden');
+            resultsContainer.innerHTML = `<div class="loading-spinner"></div>`;
+
+            const prompt = `Generate a list of 5 creative and engaging content ideas (e.g., blog posts, social media campaigns, video ideas) for the topic of "${userTopic}". Format the response as an unordered list using Markdown.`;
+            
+            // 🔑 IMPORTANT: Replace this with your actual API key to make it work on your site! 🔑
+            // Get your key from: https://aistudio.google.com/
+            const apiKey = "AIzaSyBV7uOK7UKyOnQOsG9lXbblnMrkm6zjSv8";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            if (!apiKey) {
+                loadingSpinner.classList.add('hidden');
+                resultsContainer.innerHTML = `<p class="text-red-500 text-center">API key not set. Please add your own API key to the code to use this feature on your hosted site.</p>`;
+                return;
+            }
+
+            let retries = 0;
+            const maxRetries = 3;
+            const initialDelay = 1000;
+
+            while (retries < maxRetries) {
+                try {
+                    const payload = {
+                        contents: [{
+                            parts: [{ text: prompt }]
+                        }],
+                    };
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.status === 429) { // Too Many Requests
+                        retries++;
+                        const delay = initialDelay * Math.pow(2, retries);
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        continue;
+                    }
+
+                    if (!response.ok) {
+                        throw new Error(`API call failed with status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const generatedText = result.candidates[0].content.parts[0].text;
+                        // Use a custom parser for a better look without external libraries
+                        const htmlContent = parseMarkdownList(generatedText);
+                        resultsContainer.innerHTML = htmlContent;
+                    } else {
+                        resultsContainer.innerHTML = `<p class="text-red-500 text-center">Sorry, I couldn't generate ideas. Please try again.</p>`;
+                    }
+                    break; // Exit the loop on success
+
+                } catch (error) {
+                    console.error('Error generating content ideas:', error);
+                    resultsContainer.innerHTML = `<p class="text-red-500 text-center">An error occurred: ${error.message}</p>`;
+                    break;
+                }
+            }
+
+            // Hide loading spinner
+            loadingSpinner.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

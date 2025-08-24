@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Scalix Studios - Your premier advertising and marketing agency offering innovative solutions for SEO, social media, branding, and more.">
+    <meta name="keywords" content="advertising, marketing, SEO, social media, branding, Scalix Studios, digital agency, creative agency">
+    <meta name="author" content="Scalix Studios">
+    <title>Scalix Studios - Home</title>
+
+    <!-- Tailwind CSS CDN for styling the entire page -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- AOS for smooth scroll animations -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Analytics (kept as is) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- Custom CSS for consistent styling -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        /* Custom scrollbar for better aesthetics */
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+        body::-webkit-scrollbar-track {
+            background: #f1f5f9; /* Light gray */
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #94a3b8; /* Slate gray */
+            border-radius: 4px;
+        }
+        .dark body::-webkit-scrollbar-track {
+            background: #0f172a; /* Dark blue */
+        }
+        .dark body::-webkit-scrollbar-thumb {
+            background-color: #475569; /* Darker slate gray */
+            border-radius: 4px;
+        }
+
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal specific styles */
+        .modal {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Utility for hiding the chatbot window */
+        .hide-chatbot {
+            transform: scale(0);
+        }
+        
+        /* Ensure FAQ content is hidden by default */
+        .faq-content.max-h-0 {
+            max-height: 0 !important;
+            padding: 0 !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300 font-sans">
+    
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50 rounded-b-xl" aria-label="Main navigation">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold text-blue-600 dark:text-blue-400 mb-4 md:mb-0 transform transition-all hover:scale-105">Scalix Studios</a>
+            <div class="space-x-4 flex flex-wrap justify-center items-center">
+                <a href="index.html" class="text-lg font-medium text-blue-600 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition" aria-current="page">Home</a>
+                <a href="services.html" class="text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Services</a>
+                <a href="portfolio.html" class="text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Portfolio</a>
+                <a href="#contact" class="text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
+                <button id="theme-toggle" class="focus:outline-none ml-4 transition-transform hover:scale-110" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon dark:fa-sun text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="bg-gradient-to-r from-blue-600 to-purple-600 min-h-[80vh] flex items-center justify-center text-center p-4 rounded-b-3xl shadow-2xl">
+        <div class="container mx-auto max-w-4xl z-10 px-4" data-aos="fade-up">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 text-white leading-tight">Ignite Your Brand's Potential</h1>
+            <p class="text-lg md:text-xl mb-8 text-blue-100/90 leading-relaxed max-w-2xl mx-auto">
+                Scalix Studios is your partner for innovative advertising and marketing solutions that drive growth and results.
+            </p>
+            <a href="#services" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all">
+                Explore Our Services
+            </a>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100" data-aos="fade-up">Our Comprehensive Services</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                We provide a full spectrum of digital solutions to meet your business needs and exceed your expectations.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl transform transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-globe text-blue-600 dark:text-blue-400 text-6xl mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Web Design & Development</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Crafting beautiful, responsive, and high-performing websites that captivate your audience and convert visitors into customers.
+                    </p>
+                </div>
+                <!-- Service 2 -->
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl transform transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fa-solid fa-chart-line text-purple-600 dark:text-purple-400 text-6xl mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">SEO & Content Marketing</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Boosting your online visibility and authority with strategic SEO tactics and compelling content that resonates with your target audience.
+                    </p>
+                </div>
+                <!-- Service 3 -->
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl transform transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fa-solid fa-users text-pink-600 dark:text-pink-400 text-6xl mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Social Media Management</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Building a vibrant online community and driving engagement with data-driven social media strategies across all major platforms.
+                    </p>
+                </div>
+                <!-- Service 4 -->
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl transform transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="600">
+                    <i class="fa-solid fa-lightbulb text-teal-600 dark:text-teal-400 text-6xl mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Branding & Identity</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Crafting a unique brand identity that tells your story and creates a lasting impression on your customers.
+                    </p>
+                </div>
+                <!-- Service 5 -->
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl transform transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="700">
+                    <i class="fa-solid fa-bullhorn text-indigo-600 dark:text-indigo-400 text-6xl mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Advertising Campaigns</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Running targeted, high-impact ad campaigns on Google, social media, and other platforms to maximize your ROI.
+                    </p>
+                </div>
+                <!-- Service 6 -->
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl transform transition-transform hover:scale-105" data-aos="fade-up" data-aos-delay="800">
+                    <i class="fa-solid fa-laptop-code text-orange-600 dark:text-orange-400 text-6xl mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">UI/UX Design</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Designing intuitive and engaging user interfaces and experiences that delight your users and drive conversions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="bg-gray-200 dark:bg-gray-800 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100" data-aos="fade-up">Why Choose Scalix Studios?</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                We combine creativity, data-driven strategies, and transparent communication to deliver exceptional results.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-md transform transition-transform hover:scale-105 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-wand-magic-sparkles text-blue-600 dark:text-blue-400 text-5xl mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Creative Excellence</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Our team of experts brings fresh, innovative ideas to every project, ensuring your brand stands out.
+                    </p>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-md transform transition-transform hover:scale-105 hover:shadow-xl" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fa-solid fa-chart-pie text-purple-600 dark:text-purple-400 text-5xl mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Data-Driven Results</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        We base our strategies on deep analytics and market research to guarantee measurable success and ROI.
+                    </p>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-md transform transition-transform hover:scale-105 hover:shadow-xl" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fa-solid fa-handshake text-pink-600 dark:text-pink-400 text-5xl mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Transparent Partnership</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        We believe in open communication and collaboration, working with you every step of the way to achieve your goals.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section id="contact" class="bg-gray-200 dark:bg-gray-800 py-16 rounded-3xl mx-4 my-8 md:mx-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100" data-aos="fade-up">Ready to Start Your Project?</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Contact us today to discuss your vision and see how we can help your brand succeed.
+            </p>
+            <form class="max-w-xl mx-auto space-y-4" data-aos="fade-up" data-aos-delay="300">
+                <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <textarea placeholder="Your Message" rows="4" class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                <button type="submit" class="w-full bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-700 transform hover:scale-105 transition-all">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="bg-gray-200 dark:bg-gray-800 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">Frequently Asked Questions</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+                Find answers to common questions about our services and process.
+            </p>
+            <div class="max-w-3xl mx-auto space-y-4 text-left">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md">
+                    <button type="button" class="faq-toggle w-full p-6 flex justify-between items-center text-lg font-semibold">
+                        What kind of services do you offer?
+                        <i class="fa-solid fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="text-gray-700 dark:text-gray-300 p-6 pt-0">
+                            We offer a full suite of digital marketing services including SEO, social media marketing, content creation, branding, and web design. We tailor our services to meet your specific business goals.
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md">
+                    <button type="button" class="faq-toggle w-full p-6 flex justify-between items-center text-lg font-semibold">
+                        How long does a typical project take?
+                        <i class="fa-solid fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="text-gray-700 dark:text-gray-300 p-6 pt-0">
+                            The timeline for each project varies based on its scope and complexity. A typical web design project can take anywhere from 4-8 weeks, while an ongoing SEO campaign is a long-term commitment. We will provide a detailed timeline after our initial consultation.
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md">
+                    <button type="button" class="faq-toggle w-full p-6 flex justify-between items-center text-lg font-semibold">
+                        What is your pricing model?
+                        <i class="fa-solid fa-chevron-down transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="text-gray-700 dark:text-gray-300 p-6 pt-0">
+                            We offer flexible pricing models, including project-based, retainer, and hourly rates, to accommodate different budgets and project needs. We'll provide a transparent and custom quote after understanding your requirements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-10 mt-8 rounded-t-3xl shadow-inner">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-4">Scalix Studios</h3>
+            <p class="text-sm max-w-xl mx-auto mb-6">Innovative advertising and marketing solutions for your business. Let's work together to achieve your goals.</p>
+            <div class="mt-4 space-x-6 text-xl">
+                <a href="#" target="_blank" class="hover:text-blue-400 transition" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" target="_blank" class="hover:text-blue-400 transition" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" target="_blank" class="hover:text-blue-400 transition" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" class="hover:text-blue-400 transition" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <p class="text-xs mt-6">&copy; 2025 Scalix Studios. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- AI Chatbot UI -->
+    <div id="chatbot-container" class="fixed bottom-4 right-4 z-[100] transition-transform duration-300 ease-in-out">
+        <!-- Chatbot toggle button -->
+        <button id="chatbot-toggle-btn" class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 ease-in-out">
+            <i class="fa-solid fa-comment-dots"></i>
+        </button>
+
+        <!-- Chat window -->
+        <div id="chatbot-window" class="hidden absolute bottom-20 right-0 w-80 h-96 bg-white dark:bg-gray-900 rounded-xl shadow-2xl flex flex-col transition-transform duration-300 ease-in-out transform scale-0 origin-bottom-right">
+            <!-- Chat header -->
+            <div class="bg-blue-600 text-white p-4 rounded-t-xl text-center font-bold flex items-center justify-between">
+                <span>Scalix Studios AI Assistant</span>
+                <button type="button" id="chatbot-minimize-btn" class="text-white hover:text-gray-200 transition-colors focus:outline-none">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+            </div>
+
+            <!-- Chat message area -->
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4 scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-transparent">
+                <!-- Initial welcome message -->
+                <div class="flex justify-start">
+                    <div class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100 p-3 rounded-lg max-w-[80%]">
+                        Hello! How can I assist you today?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat input form -->
+            <form id="chat-form" class="p-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <input type="text" id="chat-input" placeholder="Type a message..." class="w-full p-2 rounded-full bg-gray-100 dark:bg-gray-800 border-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-gray-100 placeholder-gray-500">
+                    <button type="submit" id="send-btn" class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Case Study Modal (Included for future functionality, hidden by default) -->
+    <div id="case-study-modal" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-4 modal">
+        <div class="bg-white dark:bg-gray-900 rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto transform transition-all duration-300 ease-in-out scale-95 opacity-0">
+            <!-- Modal Header -->
+            <div class="bg-blue-600 dark:bg-blue-800 text-white p-4 rounded-t-xl flex justify-between items-center">
+                <h2 id="modal-title" class="text-2xl font-bold"></h2>
+                <button type="button" id="modal-close-btn" class="text-white hover:text-gray-200 transition-colors focus:outline-none">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+            <!-- Modal Body -->
+            <div class="p-6">
+                <img id="modal-image" src="" alt="Case Study Image" class="w-full rounded-lg mb-6">
+                <p id="modal-content" class="text-gray-700 dark:text-gray-300 leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- AOS and Custom JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Dark Mode Toggle
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark');
+        }
+
+        // FAQ accordion functionality
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+
+        faqToggles.forEach(toggle => {
+            const content = toggle.nextElementSibling;
+            
+            toggle.addEventListener('click', () => {
+                const icon = toggle.querySelector('i');
+                const isExpanded = content.classList.toggle('max-h-0');
+                
+                if (!isExpanded) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.classList.add('rotate-180');
+                } else {
+                    content.style.maxHeight = '0px';
+                    icon.classList.remove('rotate-180');
+                }
+            });
+        });
+
+        // ===========================================
+        // AI Chatbot with Conversational Memory
+        // ===========================================
+
+        const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
+        const chatbotMinimizeBtn = document.getElementById('chatbot-minimize-btn');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        // Stores the conversation history for context-aware responses
+        const chatHistory = [];
+
+        // Toggle the chatbot window visibility
+        chatbotToggleBtn.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('hidden');
+            chatbotWindow.classList.toggle('scale-0');
+        });
+
+        // Minimize the chatbot window
+        chatbotMinimizeBtn.addEventListener('click', () => {
+            chatbotWindow.classList.add('hidden');
+            chatbotWindow.classList.add('scale-0');
+        });
+
+        /**
+         * Fetches a response from the Gemini API using the conversation history.
+         * @param {string} prompt The user's message.
+         * @returns {Promise<string>} The chatbot's response.
+         */
+        async function fetchGeminiResponse(prompt) {
+            // Add user message to history
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            
+            // The API key is intentionally left empty here. The platform will automatically inject it during runtime.
+            // This is a security measure to prevent hardcoding sensitive information.
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=`;
+            const payload = {
+                contents: chatHistory,
+            };
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0 && result.candidates[0].content && result.candidates[0].content.parts && result.candidates[0].content.parts.length > 0) {
+                    const botResponse = result.candidates[0].content.parts[0].text;
+                    // Add bot's response to history
+                    chatHistory.push({ role: "model", parts: [{ text: botResponse }] });
+                    return botResponse;
+                } else {
+                    // This can happen if the API returns an empty response or an error.
+                    console.error('API response did not contain expected content:', result);
+                    return "Sorry, I couldn't get a response. The API returned an unexpected result.";
+                }
+            } catch (error) {
+                // This catch block handles network errors or issues with the fetch call itself.
+                console.error('Error fetching from Gemini API:', error);
+                return "An error occurred while connecting to the AI assistant. Please try again later.";
+            }
+        }
+        
+        /**
+         * Adds a new message to the chat display.
+         * @param {string} sender 'user' or 'bot'.
+         * @param {string} message The message text.
+         */
+        function addMessage(sender, message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('flex', sender === 'user' ? 'justify-end' : 'justify-start');
+
+            const contentDiv = document.createElement('div');
+            contentDiv.classList.add('p-3', 'rounded-lg', 'max-w-[80%]');
+            
+            if (sender === 'user') {
+                contentDiv.classList.add('bg-blue-500', 'text-white');
+            } else {
+                contentDiv.classList.add('bg-gray-200', 'dark:bg-gray-800', 'text-gray-900', 'dark:text-gray-100');
+            }
+
+            contentDiv.innerText = message;
+            messageDiv.appendChild(contentDiv);
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to the bottom
+        }
+
+        // Handle chat form submission
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userMessage = chatInput.value.trim();
+            if (userMessage === '') return;
+
+            addMessage('user', userMessage);
+            chatInput.value = '';
+
+            // Show a "typing" indicator before calling the API
+            addMessage('bot', '...');
+            
+            const botResponse = await fetchGeminiResponse(userMessage);
+
+            // Replace loading indicator with the actual response
+            const loadingMessage = chatMessages.lastElementChild;
+            if (loadingMessage) {
+                loadingMessage.remove();
+            }
+            
+            addMessage('bot', botResponse);
+        });
+
+        // ===========================================
+        // Modal Functionality (Placeholder)
+        // ===========================================
+
+        const modal = document.getElementById('case-study-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalImage = document.getElementById('modal-image');
+        const modalContent = document.getElementById('modal-content');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+
+        // This is a placeholder. You'd call this function from a button click
+        // if you ever wanted to open a modal on this page.
+        function showModal(title, image, content) {
+            modalTitle.innerText = title;
+            modalImage.src = image;
+            modalContent.innerHTML = content;
+            
+            modal.classList.remove('hidden');
+
+            setTimeout(() => {
+                modal.firstElementChild.classList.remove('scale-95', 'opacity-0');
+            }, 0);
+        }
+
+        function hideModal() {
+            modal.firstElementChild.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        if (modalCloseBtn) {
+            modalCloseBtn.addEventListener('click', hideModal);
+        }
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+
+        // Social Share Fallback
+        function shareProject(title, url) {
+            // Check for navigator.share API support
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    url: url
+                }).catch(console.error);
+            } else {
+                // Fallback to a custom message box
+                const message = 'Share this project: ' + url;
+                const modalDiv = document.createElement('div');
+                modalDiv.innerHTML = `<div class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50">
+                                        <div class="bg-white p-6 rounded-lg shadow-xl">
+                                            <p class="text-gray-800 mb-4">${message}</p>
+                                            <button onclick="this.parentElement.parentElement.remove()" class="bg-blue-500 text-white px-4 py-2 rounded">Close</button>
+                                        </div>
+                                      </div>`;
+                document.body.appendChild(modalDiv);
+            }
+        }
+
+    </script>
+</body>
+</html>
