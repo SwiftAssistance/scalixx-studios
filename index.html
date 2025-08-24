@@ -66,11 +66,16 @@
             background-color: rgba(0, 0, 0, 0.7);
         }
 
-        /* Utility for hiding the chatbot window */
-        .hide-chatbot {
+        /* Chatbot specific styles for animation */
+        .chatbot-hidden {
             transform: scale(0);
+            opacity: 0;
         }
-        
+        .chatbot-visible {
+            transform: scale(1);
+            opacity: 1;
+        }
+
         /* Ensure FAQ content is hidden by default */
         .faq-content.max-h-0 {
             max-height: 0 !important;
@@ -291,7 +296,7 @@
         </button>
 
         <!-- Chat window -->
-        <div id="chatbot-window" class="hidden absolute bottom-20 right-0 w-80 h-96 bg-white dark:bg-gray-900 rounded-xl shadow-2xl flex flex-col transition-transform duration-300 ease-in-out transform scale-0 origin-bottom-right">
+        <div id="chatbot-window" class="absolute bottom-20 right-0 w-80 h-96 bg-white dark:bg-gray-900 rounded-xl shadow-2xl flex flex-col transition-transform duration-300 ease-in-out transform origin-bottom-right chatbot-hidden">
             <!-- Chat header -->
             <div class="bg-blue-600 text-white p-4 rounded-t-xl text-center font-bold flex items-center justify-between">
                 <span>Scalix Studios AI Assistant</span>
@@ -401,6 +406,17 @@
         // Do NOT share your key publicly.
         // =========================================================================
         const API_KEY = "AIzaSyBV7uOK7UKyOnQOsG9lXbblnMrkm6zjSv8"; // PASTE YOUR API KEY HERE BETWEEN THE QUOTES
+
+        // Add event listeners for the chatbot toggle buttons.
+        chatbotToggleBtn.addEventListener('click', () => {
+            chatbotWindow.classList.remove('chatbot-hidden');
+            chatbotWindow.classList.add('chatbot-visible');
+        });
+
+        chatbotMinimizeBtn.addEventListener('click', () => {
+            chatbotWindow.classList.remove('chatbot-visible');
+            chatbotWindow.classList.add('chatbot-hidden');
+        });
 
         /**
          * Fetches a response from the Gemini API using the conversation history.
