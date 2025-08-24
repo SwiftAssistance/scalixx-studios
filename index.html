@@ -394,18 +394,13 @@
 
         // Stores the conversation history for context-aware responses
         const chatHistory = [];
-
-        // Toggle the chatbot window visibility
-        chatbotToggleBtn.addEventListener('click', () => {
-            chatbotWindow.classList.toggle('hidden');
-            chatbotWindow.classList.toggle('scale-0');
-        });
-
-        // Minimize the chatbot window
-        chatbotMinimizeBtn.addEventListener('click', () => {
-            chatbotWindow.classList.add('hidden');
-            chatbotWindow.classList.add('scale-0');
-        });
+        
+        // =========================================================================
+        // IMPORTANT: Add your API key here for external hosting like Netlify.
+        // Get your key from Google AI Studio: https://aistudio.google.com/
+        // Do NOT share your key publicly.
+        // =========================================================================
+        const API_KEY = "AIzaSyBV7uOK7UKyOnQOsG9lXbblnMrkm6zjSv8"; // PASTE YOUR API KEY HERE BETWEEN THE QUOTES
 
         /**
          * Fetches a response from the Gemini API using the conversation history.
@@ -416,9 +411,8 @@
             // Add user message to history
             chatHistory.push({ role: "user", parts: [{ text: prompt }] });
             
-            // The API key is intentionally left empty here. The platform will automatically inject it during runtime.
-            // This is a security measure to prevent hardcoding sensitive information.
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=`;
+            // Construct the API URL with your key
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
             const payload = {
                 contents: chatHistory,
             };
